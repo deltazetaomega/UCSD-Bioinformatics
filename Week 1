@@ -38,3 +38,11 @@ def ReverseComplement(Text):
   complement.reverse()
   return ''.join(complement)
 
+#Find all positions in the genome where the pattern occurs
+
+def PatternPositions(Pattern, Genome): 
+  pos = []
+  for i in range(len(Genome) - len(Pattern) + 1): 
+    if Genome[i: i+len(Pattern)] == Pattern:
+      pos.append(i)
+  return pos
