@@ -1,0 +1,23 @@
+#Find the number of a specific k-mer: 
+
+def PatternCount(Text, Pattern):
+ count = 0
+ for i in range(len(Text)-len(Pattern)+1):
+   if Text[i:i + len(Pattern)] == Pattern:
+     count = count + 1
+ return count
+ 
+#Find the most frequent k-mers
+ 
+def FrequentWords(Text, k):
+ FrequentPatterns = []
+ count = []
+ for i in range(len(Text) - k + 1):
+   Pattern = Text[i: i+k]
+   count.append(PatternCount(Text, Pattern))
+ maxCount = max(count)
+ for i in range(len(Text) - k + 1):
+   if count[i] == maxCount:
+     FrequentPatterns.append(Text[i:i+k])
+   FrequentPatterns = list(dict.fromkeys(FrequentPatterns))
+ return FrequentPatterns
