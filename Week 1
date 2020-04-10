@@ -21,3 +21,20 @@ def FrequentWords(Text, k):
      FrequentPatterns.append(Text[i:i+k])
    FrequentPatterns = list(dict.fromkeys(FrequentPatterns))
  return FrequentPatterns
+ 
+#Find the reverse complement of a DNA strand
+
+def ReverseComplement(Text): 
+  complement = [] 
+  for i in range(len(Text)): 
+    if Text[i] == "A": 
+      complement.append("T") 
+    if Text[i] == "T": 
+      complement.append("A") 
+    if Text[i] == "C": 
+      complement.append("G") 
+    if Text[i] == "G": 
+      complement.append("C")
+  complement.reverse()
+  return ''.join(complement)
+
